@@ -32,19 +32,14 @@ def load_csv(filename):
 xtrain = np.linspace(0,150, 150)
 ytrain = 5*(xtrain+3*np.random.random(xtrain.shape[0]))
 
-# reshaping input to 2d arrays because the code expects that form. It will print an error telling you how to do this if you give it 1d arrays.
-# FIRST TEST GOES HERE!!!!!
+# reshape input to 2d arrays (code expects it this way)
 xtrain = xtrain.reshape(xtrain.shape[0], -1)
 ytrain = ytrain.reshape(ytrain.shape[0], -1)
 
-#fraction_of_data_to_save_for_testing = 0#.5
-#xtrain, xtest, ytrain, ytest = sklearn.model_selection.train_test_split(xs, ys, test_size=fraction_of_data_to_save_for_testing)
-#xtrain, ytrain = sklearn.model_selection.train_test_split(xs, ys, test_size=fraction_of_data_to_save_for_testing)
-
-#creating your machine learning model object
+# create the machine learning model object
 regr = linear_model.LinearRegression()
 
-#fitting your machine learning model object
+# fit the machine learning model object
 regr.fit(xtrain, ytrain)
 
 # Use the "Auto Insurance in Sweden" dataset (link below) to predict the total payment for all the claims in thousands of Swedish Kronor (y) given the total number of claims (x)
@@ -66,14 +61,14 @@ ytest = ytest.reshape(ytest.shape[0], -1) # reshape to 2d array
 xtest = xtest.astype(float) # change type to float
 ytest = ytest.astype(float) # change type to float
 
-# predicting values using the fitted model
+# predict values using the fitted model
 ypred = regr.predict(xtest)
 
-# The coefficients
+# the coefficients
 print('Coefficients: \n', regr.coef_)
-# The mean squared error
+# the mean squared error
 print("Mean squared error: %.2f" % mean_squared_error(ytest, ypred))
-# Explained variance score: 1 is perfect prediction
+# variance score
 print('Variance score: %.2f' % r2_score(ytest, ypred))
 
 plt.figure()
