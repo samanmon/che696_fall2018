@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
+Author: Saman Moniri (U. Michigan, November 2018)
+Course project for ChE 696: On-ramp to Data Science
 
+Project description:
 Train a linear regression model using random numbers.
-
 Use trained model to predict the total payment for all the claims in thousands of Swedish Kronor (y) given the total number of claims (x).
 The “Auto Insurance in Sweden” dataset is available at:
 https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/
